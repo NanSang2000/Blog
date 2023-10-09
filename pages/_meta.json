@@ -19,8 +19,8 @@
     "title": "Blog",
     "type": "page"
   },
-  "leaves": {
-    "title": "Leaves",
+  "CurriculumVitae": {
+    "title": "CurriculumVitae",
     "type": "page",
     "theme": {
       "sidebar": false,

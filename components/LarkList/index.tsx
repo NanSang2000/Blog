@@ -57,7 +57,7 @@ export default function LarkList (): JSX.Element {
   const [nowPage, setNowPage] = useState(0)
 
   useEffect(() => {
-    void fetch('/api/leaves').then(async (res) => await res.json()).then((data) => {
+    void fetch('/CurriculumVitae').then(async (res) => await res.json()).then((data) => {
       setPosts(data.items.reverse())
       setFetched(true)
     })
