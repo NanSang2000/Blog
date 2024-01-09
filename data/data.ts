@@ -1,20 +1,23 @@
 import { type NavCatagory } from '../types'
 
+// @ts-ignore
+// @ts-ignore
+// @ts-ignore
 export const NavData: NavCatagory[] = [
-  {
-    id: 0,
-    name: 'Connection',
-    desc: 'Connection blog, welcome exchange with me',
-    navs: [
-      {
-        name: '愧怍',
-        link: 'https://kuizuo.cn/',
-        desc: '愧怍的小站',
-        type: 'connection',
-        avatar: 'https://kuizuo.cn/img/logo.webp'
-      }
-    ]
-  },
+  // {
+  //   id: 0,
+  //   name: 'Connection',
+  //   desc: 'Connection blog, welcome exchange with me',
+  //   navs: [
+  //     {
+  //       name: '',
+  //       link: '',
+  //       desc: '',
+  //       type: '',
+  //       avatar: ''
+  //     }
+  //   ]
+  // },
   {
     id: 1,
     name: '前端框架',
