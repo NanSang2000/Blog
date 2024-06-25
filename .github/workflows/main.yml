@@ -16,10 +16,18 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20.11.1'
-        cache: 'npm'  # Ensure this is set to use pnpm's caching mechanism
 
     - name: Install pnpm
-      run: npm install -g pnpm
+      run: |
+        curl -f https://get.pnpm.io/v6.16.js | node - add --global pnpm
+
+    - name: Cache pnpm modules
+      uses: actions/cache@v3
+      with:
+        path: ~/.pnpm-store
+        key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+        restore-keys: |
+          ${{ runner.os }}-pnpm-
 
     - name: Install dependencies
       run: pnpm ci
