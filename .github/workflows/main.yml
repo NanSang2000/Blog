@@ -1,4 +1,4 @@
-name: Next.js 的 CI/CD 流水线
+name: CI/CD Pipeline for Next.js
 
 on:
   push:
@@ -12,30 +12,30 @@ jobs:
     steps:
     - uses: actions/checkout@v4
 
-    - name: 设置 Node.js
+    - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20.11.1'  
+        node-version: '20.11.1'
         cache: 'npm'
+
+    - name: Install dependencies
+      run: npm ci
         
-    - name: 安装依赖
-      run: npm install
-        
-    - name: 运行 Linter
+    - name: Run Linter
       run: npm run lint
 
-    - name: 构建
+    - name: Build
       run: npm run build
 
-    - name: 运行测试
+    - name: Run tests
       run: npm test
 
-    - name: 设置 SSH 密钥
+    - name: Set up SSH key
       uses: webfactory/ssh-agent@v0.5.3
       with:
         ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
 
-    - name: 连接到 Azure VM 并部署
+    - name: Connect to Azure VM and deploy
       run: |
         ssh -o StrictHostKeyChecking=no azureuser@IP_Host "
           cd /var/www/wwwroot/Blog/ &&
