@@ -16,7 +16,7 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20.11.1'
-        cache: 'pnpm'  # Ensure this is set to use pnpm's caching mechanism
+        cache: 'npm'  # Ensure this is set to use pnpm's caching mechanism
 
     - name: Install pnpm
       run: npm install -g pnpm
