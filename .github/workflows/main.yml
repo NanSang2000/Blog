@@ -29,7 +29,7 @@ jobs:
           ${{ runner.os }}-pnpm-
 
     - name: Install dependencies
-      run: npm install --force
+      run: npm install --force --no-frozen-lockfil
         
     - name: Run Linter
       run: npm run lint
