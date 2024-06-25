@@ -22,7 +22,7 @@ jobs:
       run: |
         npm install -g pnpm
         pnpm setup
-        export PATH=$(pnpm bin -g):$PATH
+        echo "::add-path::$(pnpm bin -g)"
 
     - name: Install dependencies
       run: pnpm install
