@@ -41,11 +41,11 @@ jobs:
     - name: Set up SSH key
       uses: webfactory/ssh-agent@v0.5.3
       with:
-        ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+        ssh-private-key: ${{ secrets.Nan }}
 
     - name: Connect to Azure VM and deploy
       run: |
-        ssh -o StrictHostKeyChecking=no azureuser@20.213.108.159 "
+        ssh -o StrictHostKeyChecking=no azureuser@IP_Host "
           cd /var/www/wwwroot/Blog/ &&
           git pull &&
           pm2 npm run -- start
