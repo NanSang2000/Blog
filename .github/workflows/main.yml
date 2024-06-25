@@ -16,19 +16,22 @@ jobs:
       uses: actions/setup-node@v3
       with:
         node-version: '20.11.1'
-        cache: 'npm'
+        cache: 'pnpm'
+
+    - name: Install pnpm
+      run: npm install -g pnpm
 
     - name: Install dependencies
-      run: npm ci
+      run: pnpm install
         
     - name: Run Linter
-      run: npm run lint
+      run: pnpm run lint
 
     - name: Build
-      run: npm run build
+      run: pnpm run build
 
     - name: Run tests
-      run: npm test
+      run: pnpm test
 
     - name: Set up SSH key
       uses: webfactory/ssh-agent@v0.5.3
@@ -40,5 +43,5 @@ jobs:
         ssh -o StrictHostKeyChecking=no azureuser@IP_Host "
           cd /var/www/wwwroot/Blog/ &&
           git pull &&
-          pm2 start npm -- run start
+          pm2 start pnpm -- run start
         "
