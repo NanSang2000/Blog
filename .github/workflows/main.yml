@@ -20,10 +20,15 @@ jobs:
         
     - name: Clean npm cache
       run: npm cache clean --force
-      
+    
     - name: Install dependencies
       run: npm install
-
+      
+    - name: Delete package-lock.json and node_modules
+      run: |
+        rm -rf node_modules
+        rm -f package-lock.json
+        
     - name: Run Linter
       run: npm run lint
 
