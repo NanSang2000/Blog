@@ -22,13 +22,13 @@ jobs:
       run: npm ci
         
     - name: Run Linter
-      run: npm run lint
+      run: pnpm run lint
 
     - name: Build
       run: npm run build
 
     - name: Run tests
-      run: npm test
+      run: pnpm test
 
     - name: Set up SSH key
       uses: webfactory/ssh-agent@v0.5.3
@@ -41,4 +41,3 @@ jobs:
           cd /var/www/wwwroot/Blog/ &&
           git pull &&
           pm2 start npm -- run start
-        "
